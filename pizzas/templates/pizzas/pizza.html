@@ -20,10 +20,13 @@
     <ul>
         {% for comment in comments %}
         <li> 
-            <a href = "{% url 'pizzas:pizza' pizza.id %}"> {{Pizza}}</a>
+            <p>{{comment.date_added | date:'M d, Y H:i' }}</p>
+            <p>{{comment.text | linebreaks }}</p>
         </li>
         {% empty %}
         <li> No Comments have been added yet </li>
         {% endfor %}
     </ul>
+
+    <p><a href="{% url 'pizzas:new_comment' pizza.id %}">Add New Comment</a></p>
 {% endblock content %}
