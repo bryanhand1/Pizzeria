@@ -1,0 +1,29 @@
+{% extends "pizzas/base.html" %}
+
+{% block content %}
+    <h2>{{ pizza }} Pizza </h2>
+
+    <p>Toppings: </p>
+
+    <ul>
+        {% for topping in toppings %}
+
+            <li>{{ topping.name }}</li>
+        {% empty %}
+            <li>We do not have any information for this pizza.</li>
+        {% endfor %}
+
+    </ul>
+
+    <p> Comments: </p>
+
+    <ul>
+        {% for comment in comments %}
+        <li> 
+            <a href = "{% url 'pizzas:pizza' pizza.id %}"> {{Pizza}}</a>
+        </li>
+        {% empty %}
+        <li> No Comments have been added yet </li>
+        {% endfor %}
+    </ul>
+{% endblock content %}
